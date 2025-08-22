@@ -1,0 +1,27 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Agenda de Contatos</title>
+    <style>
+        /* Estilos simplificados */
+        body { font-family: sans-serif; margin: 20px; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Meus Contatos</h1>
+    {% if contatos %}
+        <ul>
+            {% for livros in livros %}
+                <li>
+                    <span>{{ livros.titulo }} - {{livros.autor}}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro cadastrado ainda. Use o painel administrativo para adicionar alguns!</p>
+    {% endif %}
+</body>
+</html>
