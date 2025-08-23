@@ -1,27 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Agenda de Contatos</title>
+    <link rel="stylesheet" href="{% static 'livros/biblioteca.css' %}">
+    <title>Minha Biblioteca</title>
     <style>
-        /* Estilos simplificados */
         body { font-family: sans-serif; margin: 20px; }
         ul { list-style: none; padding: 0; }
         li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
-    <h1>Meus Contatos</h1>
+      <h1>Meus Contatos</h1>
+    <a href="{% url 'livros:livros_criar' %}" class="add-link">Cadastrar Novo Livro</a>
     {% if contatos %}
         <ul>
-            {% for livros in livros %}
+            {% for contato in contatos %}
                 <li>
-                    <span>{{ livros.titulo }} - {{livros.autor}}</span>
+                    <a href="{% url 'livros:livros_detalhe' livros.pk %}">{{ livros.titulo }} - {{livros.autor}}</a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Nenhum livro cadastrado ainda. Use o painel administrativo para adicionar alguns!</p>
+        <p>Nenhum livro cadastrado ainda. Clique em "Adicionar Novo Livro" para começar!</p>
     {% endif %}
 </body>
 </html>

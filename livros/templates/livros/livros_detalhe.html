@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'livros/biblioteca.css' %}">
+    <title>{{ livros.titulo }} - Detalhes do Livro</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .actions a { margin-right: 10px; text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Detalhes de {{ livros.titulo }}</h1>
+    <p><strong>Título:</strong> {{ livros.titulo }}</p>
+    <p><strong>Autor:</strong> {{ livros.autor }}</p>
+    <p><strong>Ano de Publicação:</strong> {{ livros.ano_publicacao }}</p>
+    <p><strong>Sinopse:</strong> {{ livros.sinopse }}</p>
+
+    <div class="actions">
+    </div>
+    <a href="{% url 'livros:livros_lista' %}">Voltar para a lista</a>
+    <div class="actions">
+        <a href="{% url 'livros:livros_editar' livros.pk %}">Editar</a>
+        <a href="{% url 'livros:livros_excluir' livros.pk %}">Excluir</a>
+
+    </div>
+</body>
+</html>
