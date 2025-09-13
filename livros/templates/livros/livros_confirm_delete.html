@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Confirmar Exclusão</h1>
-    <p>Tem certeza de que deseja excluir o livro? **"{{ livro.nome }}"**?</p>
+    <p>Tem certeza de que deseja excluir o livro? **"{{ livros.titulo }}"**?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Sim, Excluir</button>

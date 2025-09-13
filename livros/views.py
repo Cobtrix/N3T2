@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Livros
-from .forms import LivrosForm, LivrosForm
+from .forms import LivrosForm
 
 
 def livros_lista(request):
-
     livros = Livros.objects.all().order_by('titulo')
-
-
-    return render(request, 'biblioteca/livros_lista.html', {'livros':livros})
+    return render(request, 'livros/livros_lista.html', {'livros':livros})
 
 def livros_criar(request):
     if request.method == 'POST':
@@ -18,7 +15,7 @@ def livros_criar(request):
             return redirect('livros:livros_lista')
     else:
         form = LivrosForm()
-    return render(request, 'livros/livros_form.html', {'form': form, 'titulo_pagina': 'Cadastrar Livro'})
+        return render(request, 'livros/livros_form.html', {'form': form, 'titulo_pagina': 'Cadastrar Livro'})
 
 def livros_detalhe(request, pk):
     livros = get_object_or_404(Livros, pk=pk)

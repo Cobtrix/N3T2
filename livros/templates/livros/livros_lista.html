@@ -6,18 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'livros/biblioteca.css' %}">
     <title>Minha Biblioteca</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 5px; }
-    </style>
 </head>
 <body>
-      <h1>Meus Contatos</h1>
+      <h1>Meus Livros</h1>
     <a href="{% url 'livros:livros_criar' %}" class="add-link">Cadastrar Novo Livro</a>
-    {% if contatos %}
+    {% if livros %}
         <ul>
-            {% for contato in contatos %}
+            {% for livros in livros %}
                 <li>
                     <a href="{% url 'livros:livros_detalhe' livros.pk %}">{{ livros.titulo }} - {{livros.autor}}</a>
                 </li>
